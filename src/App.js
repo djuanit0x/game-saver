@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import Header from "./components/Header/Header.js";
 import Game from "./components/Game/Game.js";
-
+import PopularWindow from "./components/PopularWindow/PopularWindow.js"
+import SearchWindow from "./components/SearchWindow/SearchWindow.js"
+import SearchBar    from "../SearchBar/SearchBar.js";
 
 class App extends Component {
 
@@ -10,20 +13,11 @@ class App extends Component {
     super();
     this.state = {
       myGames               : [],
-      popularGames          : [],
       isDisplayPopularGames : "true"
     };
+    this.validatePopularGames = this.validatePopularGames.bind(this);
   }
-
-  componentDidMount() {
-    axios.get(`/api/games/popular`)
-         .then(response => {
-           console.log(response.data)
-           this.setState({
-             popularGames: response.data
-         });
-    })
-  }
+ 
 
   countMyGames() {
     axios.get(`/api/games/mygames`)
@@ -41,34 +35,14 @@ class App extends Component {
       isDisplayPopularGames: flag
     });
   }
-
+  
   render() {
-    let displayPopularGames = () => {
-      return this.state.popularGames.map(game => {
-        return (
-         <div key={ Number(game.id) }>
-           <Game 
-              name={ game.name }
-              cover={ (game.cover === null) ? "www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover }
-              popularity={ game.popularity }
-              hypes={ game.hypes }
-           />
-         </div> 
-        );
-      });
-     
-
-
-    }
     
     return (
-
-
       <div className="App">
-       {/* {(displayPopularGames === "true") ? } */}
-      {/* {JSON.stringify(this.state.popularGames)} */}
-      { displayPopularGames() }
-
+        <Header />
+        { (this.state.isDisplayPopularGames === "true") ? <PopularWindow /> 
+        : <SearchWindow popularOrSearch={ this.validatePopularGames } /> }
       </div>
     );
   }
