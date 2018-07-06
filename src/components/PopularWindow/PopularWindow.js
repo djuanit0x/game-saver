@@ -40,7 +40,11 @@ export default class PopularWindow extends Component {
         }
         
         return (
-          <div> { displayPopularGames() } </div>
+        <div>
+            <h1>The Most Popular Video Games Right now</h1>
+            <div> { displayPopularGames() } </div>
+        </div>
+          
         );
       }
 }

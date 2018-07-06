@@ -19,6 +19,7 @@ let updateJson = gameData => {
 module.exports = {
     searchGames: (req, res) => {
         let query = decodeURI(req.params.name);
+        console.log(req.params);
         axios.get(`https://api-endpoint.igdb.com/games/?search=${ query }&fields=name,popularity,cover,hypes`, {
             headers: {
                 "user-key"  : API_KEY,

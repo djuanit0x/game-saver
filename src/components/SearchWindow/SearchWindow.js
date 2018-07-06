@@ -9,23 +9,35 @@ export default class SearchWindow extends Component {
         super();
         this.state = {
           searchGames: [],
-          input: ""
         };
     }
 
-    getNewSearchGames(query) {
-        axios.get(`/api/games/search/${ query }`)
+    componentDidMount() {
+        console.log(`/api/games/search/${ this.props.query }`);
+        axios.get(`/api/games/search/${ this.props.query }`)
+             .then(response => {
+               console.log(response.data)
+               this.setState({
+                 searchGames: response.data
+             });
+        })
+    }
+    // get props and set state
+    componentDidUpdate(prevProps, prevState) {
+        console.log(`/api/games/search/${ this.props.query }`);
+        if (prevProps.query !== this.props.query) {
+            axios.get(`/api/games/search/${ this.props.query }`)
              .then(response => {
                //console.log(response.data)
                this.setState({
                  searchGames: response.data
              });
         })
+        }
+        
     }
 
-    handleInput(val) {
-        this.props.validatePopularGames(val);
-    }
+    
 
     addGame(newGame) {
 
@@ -38,7 +50,7 @@ export default class SearchWindow extends Component {
              <div key={ Number(game.id) }>
                <Game 
                   name={ game.name }
-                  cover={ (game.cover === null) ? "www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover }
+                  cover={ !game.cover ? "http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover }
                   popularity={ game.popularity }
                   hypes={ game.hypes }
                />
@@ -49,7 +61,14 @@ export default class SearchWindow extends Component {
         }
         
         return (
-          <div> { displaySearchGames() } </div>
+            
+          <div> 
+              <div>
+                  <h1>Searching Results:</h1>
+                  { displaySearchGames() } 
+              </div>
+          </div>
+          
         );
       }
 }

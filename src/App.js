@@ -5,7 +5,7 @@ import Header from "./components/Header/Header.js";
 import Game from "./components/Game/Game.js";
 import PopularWindow from "./components/PopularWindow/PopularWindow.js"
 import SearchWindow from "./components/SearchWindow/SearchWindow.js"
-import SearchBar    from "../SearchBar/SearchBar.js";
+import SearchBar    from "./components/SearchBar/SearchBar.js";
 
 class App extends Component {
 
@@ -13,9 +13,10 @@ class App extends Component {
     super();
     this.state = {
       myGames               : [],
-      isDisplayPopularGames : "true"
+      isDisplayPopularGames : "true",
+      input                 : ""
     };
-    this.validatePopularGames = this.validatePopularGames.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
  
 
@@ -28,12 +29,15 @@ class App extends Component {
     })
     return this.state.myGames.length; // this may not work
   }
+ 
 
-  validatePopularGames(input) {
-    let flag = (input.length === 0) ? "true" : "false";
+  handleInput(val) {
+    let flag = (val.length === 0) ? "true" : "false";
     this.setState({
+      input: val,
       isDisplayPopularGames: flag
     });
+ 
   }
   
   render() {
@@ -41,8 +45,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <SearchBar handleInput={ this.handleInput } query={ this.state.input }/>
         { (this.state.isDisplayPopularGames === "true") ? <PopularWindow /> 
-        : <SearchWindow popularOrSearch={ this.validatePopularGames } /> }
+        : <SearchWindow query={ this.state.input } /> }
       </div>
     );
   }
