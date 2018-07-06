@@ -18,7 +18,7 @@ class App extends Component {
   getPopularGames() {
     axios.get(`${ this.base_url }/api/games/popular`)
          .then(response => {
-           
+           response
          })
   }
 
