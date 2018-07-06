@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');            // so that we can use req.
 const gamesCtrl = require('../controllers/games.js'); // Import gamesCtrlController so that I can implement them into my endpoints 
 const axios = require('axios');
 const port = 3006;
-
+require("dotenv").config();
+console.log(process.env);
 // Top-level middleware
 const app = express();
 app.use(express.static(__dirname + "/build")); // app.use() --> middleware that runs every request
@@ -18,6 +19,7 @@ app.delete('/api/games/mygames/:id'        , gamesCtrl.deleteGame)
 app.get('/api/games/search/:name'          , gamesCtrl.searchGames);
 app.get('/api/games/popular'               , gamesCtrl.searchPopularGames)
 
-app.listen(port, () => {
-    console.log(`You are in Port: ${ port }`);
+let { SERVER_PORT } = process.env;
+app.listen(SERVER_PORT, () => {
+    console.log(`You are in Port: ${ SERVER_PORT }`);
 });

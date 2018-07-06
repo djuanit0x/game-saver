@@ -1,7 +1,8 @@
 const axios    = require('axios');
+require("dotenv").config();
 // fields
 let games = [];
-const API_KEY = "6248fe02a01af49ed2d526f75c12f70a";
+let { API_KEY } = process.env;
 
 let updateJson = gameData => {
         return gameData.map(dataGameObj => {
