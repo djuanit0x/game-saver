@@ -1,42 +1,73 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
+import Game from "./components/Game/Game.js";
+
 
 class App extends Component {
 
   constructor() {
     super();
-    this.setState({
-      myGames             : [],
-      displayPopularGames : "true"
-    });
+    this.state = {
+      myGames               : [],
+      popularGames          : [],
+      isDisplayPopularGames : "true"
+    };
   }
 
   componentDidMount() {
-
-  }
-
-  getPopularGames() {
-    axios.get(`${ this.base_url }/api/games/popular`)
+    axios.get(`/api/games/popular`)
          .then(response => {
-           response
-         })
+           console.log(response.data)
+           this.setState({
+             popularGames: response.data
+         });
+    })
   }
 
   countMyGames() {
-
+    axios.get(`/api/games/mygames`)
+         .then(response => {
+           this.setState({
+             games: response.data
+         });
+    })
+    return this.state.myGames.length; // this may not work
   }
 
-  validatePopularGames() {
-
+  validatePopularGames(input) {
+    let flag = (input.length === 0) ? "true" : "false";
+    this.setState({
+      isDisplayPopularGames: flag
+    });
   }
 
   render() {
-    const base_url = "http://localhost:3006";
+    let displayPopularGames = () => {
+      return this.state.popularGames.map(game => {
+        return (
+         <div key={ Number(game.id) }>
+           <Game 
+              name={ game.name }
+              cover={ (game.cover === null) ? "www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover }
+              popularity={ game.popularity }
+              hypes={ game.hypes }
+           />
+         </div> 
+        );
+      });
+     
 
 
-
+    }
+    
     return (
+
+
       <div className="App">
+       {/* {(displayPopularGames === "true") ? } */}
+      {/* {JSON.stringify(this.state.popularGames)} */}
+      { displayPopularGames() }
 
       </div>
     );

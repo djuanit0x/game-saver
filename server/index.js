@@ -4,7 +4,7 @@ const gamesCtrl = require('../controllers/games.js'); // Import gamesCtrlControl
 const axios = require('axios');
 const port = 3006;
 require("dotenv").config();
-console.log(process.env);
+
 // Top-level middleware
 const app = express();
 app.use(express.static(__dirname + "/build")); // app.use() --> middleware that runs every request
