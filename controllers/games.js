@@ -53,8 +53,13 @@ module.exports = {
             cover,
             popularity,
             hypes
-                        } = req.body; 
-            games.push({name, id, cover, popularity, hypes});
+                        } = req.body;
+
+            let index = games.findIndex(game => game.id === Number(id));
+            if (index === -1) {
+                games.push({name, id, cover, popularity, hypes});
+            } 
+            
             res.status(200).send(games);
     }
     , 

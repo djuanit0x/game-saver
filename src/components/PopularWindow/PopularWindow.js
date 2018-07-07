@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Game from "../Game/Game.js";
+import AddButton from "../AddButton/AddButton.js";
 
 
 export default class PopularWindow extends Component {
@@ -10,6 +11,7 @@ export default class PopularWindow extends Component {
         this.state = {
           popularGames: [],
         };
+        this.addGame = this.addGame.bind(this);
     }
 
     componentDidMount() {
@@ -22,17 +24,30 @@ export default class PopularWindow extends Component {
         })
     }
 
+    addGame(newGame) {
+        axios.post(`/api/games/mygames`, newGame);
+    }
     render() {
         let displayPopularGames = () => {
           return this.state.popularGames.map(game => {
+            let gameCover = (game.cover === null) ? "http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover;
+
             return (
              <div key={ Number(game.id) }>
                <Game 
                   name={ game.name }
-                  cover={ (game.cover === null) ? "www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover }
+                  cover={ gameCover }
                   popularity={ game.popularity }
                   hypes={ game.hypes }
                />
+               <AddButton addGame={ this.addGame }
+                          gameObj={{
+                                 name       : game.name,
+                                 id         : game.id,
+                                 cover      : gameCover,
+                                 popularity : game.popularity,
+                                 hypes      : game.hypes
+                          }}/>
              </div> 
             );
           });
