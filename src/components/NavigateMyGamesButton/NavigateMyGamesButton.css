@@ -1,0 +1,18 @@
+.btn-discover {
+    width: 50px;
+    height: 50px;
+    background-image: url("http://www.iconsplace.com/icons/preview/salmon/google-web-search-256.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+}
+
+button:active {
+    border: 2px solid dodgerblue;
+}
+
+button:hover {
+    background-image: url("http://www.free-icons-download.net/images/green-add-icon-62888.png");
+}

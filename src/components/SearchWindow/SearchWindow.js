@@ -25,15 +25,13 @@ export default class SearchWindow extends Component {
     }
     // get props and set state
     componentDidUpdate(prevProps, prevState) {
-        console.log(`/api/games/search/${ this.props.query }`);
         if (prevProps.query !== this.props.query) {
             axios.get(`/api/games/search/${ this.props.query }`)
              .then(response => {
-               //console.log(response.data)
                this.setState({
                  searchGames: response.data
-             });
-        })
+                });
+            })
         }
         
     }

@@ -1,0 +1,18 @@
+.btn-games {
+    width: 100px;
+    height: 100px;
+    background-image: url("http://files.softicons.com/download/folder-icons/onibari-ultimate-icons-by-stinky9/png/256/Games.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+}
+
+button:active {
+    border: 2px solid dodgerblue;
+}
+
+button:hover {
+    background-image: url("http://www.free-icons-download.net/images/green-add-icon-62888.png");
+}
