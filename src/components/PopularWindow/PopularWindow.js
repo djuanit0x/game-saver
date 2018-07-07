@@ -51,7 +51,6 @@ export default class PopularWindow extends Component {
              </div> 
             );
           });
-         
         }
         
         return (
