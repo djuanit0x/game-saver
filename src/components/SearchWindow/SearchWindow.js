@@ -35,6 +35,7 @@ export default class SearchWindow extends Component {
 
   addGame(newGame) {
     axios.post(`/api/games/mygames`, newGame);
+    alert(`${newGame.name} has been added to your games! You currently have ${this.props.countMyGames()} games.`);
   }
 
   render() {

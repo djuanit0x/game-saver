@@ -34,7 +34,9 @@ export default class MyGames extends Component {
 
   deleteGame(id, name) {
     axios.delete(`/api/games/mygames/${id}`);
-    alert(`${name} has been deleted!`);
+    alert(
+      `${name} has been deleted! You have ${this.state.myGames.length - 1} games left.`
+    );
     this.getGame();
   }
 

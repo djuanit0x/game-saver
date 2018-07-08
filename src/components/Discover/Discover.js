@@ -13,16 +13,17 @@ export default class Discover extends Component {
       isDisplayPopularGames: "true",
       input: ""
     };
-    this.handleInput = this.handleInput.bind(this);
+    this.handleInput  = this.handleInput.bind(this);
+    this.countMyGames = this.countMyGames.bind(this);
   }
 
   countMyGames() {
     axios.get(`/api/games/mygames`).then(response => {
       this.setState({
-        games: response.data
+        myGames: response.data
       });
     });
-    return this.state.myGames.length; // this may not work
+    return this.state.myGames.length + 1; // this may not work
   }
 
   handleInput(val) {
@@ -36,11 +37,11 @@ export default class Discover extends Component {
   render() {
     return (
       <div>
-        <SearchBar handleInput={this.handleInput} query={this.state.input} />
+          <SearchBar handleInput={this.handleInput} query={this.state.input} />
         {this.state.isDisplayPopularGames === "true" ? (
-          <PopularWindow />
+          <PopularWindow countMyGames={this.countMyGames}/>
         ) : (
-          <SearchWindow query={this.state.input} />
+          <SearchWindow countMyGames={this.countMyGames} query={this.state.input} />
         )}
       </div>
     );

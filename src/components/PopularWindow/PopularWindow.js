@@ -25,6 +25,7 @@ export default class PopularWindow extends Component {
 
   addGame(newGame) {
     axios.post(`/api/games/mygames`, newGame);
+    alert(`${newGame.name} has been added to your games! You currently have ${this.props.countMyGames()} games.`);
   }
   render() {
     let displayPopularGames = () => {
@@ -62,7 +63,7 @@ export default class PopularWindow extends Component {
     return (
       <div>
         <div className="popular-text">
-          <Header text="The Most Popular Video Games Right now" />
+            <h1  >The Most Popular Video Games Right now</h1>
         </div>
 
         <div className="popular-games-flex"> {displayPopularGames()} </div>
@@ -70,3 +71,5 @@ export default class PopularWindow extends Component {
     );
   }
 }
+
+//<Header text="The Most Popular Video Games Right now" />
