@@ -1,14 +1,14 @@
-input[type=text] {
-    width: 30%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.8s;
-    transition: 0.8s;
-    outline: none;
+input[type="text"] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  outline: none;
 }
 
-input[type=text]:focus {
-    border: 3px solid dodgerblue;
-    background-color:gainsboro;
+input[type="text"]:focus {
+  border: 3px solid dodgerblue;
+  background-color: gainsboro;
 }

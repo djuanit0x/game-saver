@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url("https://fonts.googleapis.com/css?family=Karla");
 /**@import url('https://fonts.googleapis.com/css?family=Palanquin');*/
 /**@import url('https://fonts.googleapis.com/css?family=Roboto');*/
 
@@ -10,20 +10,19 @@
 }
 
 body {
- color:white;
- font-family:  "Karla";
+  color: white;
+  font-family: "Karla";
 }
 
 body::-webkit-scrollbar {
   width: 1em;
 }
 
- 
 body::-webkit-scrollbar-thumb {
-background-color: darkgrey;
-outline: 1px solid slategrey;
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
- 
+
 .header-top {
   display: flex;
   justify-content: space-around;

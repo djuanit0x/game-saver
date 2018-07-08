@@ -1,22 +1,21 @@
 .btn {
-    width: 30%;
-    height: 10%;
-    background-color: #9acd32;
-    border: none;
-    outline: none;
-    font-size: 12px;
-    outline: none;
-    text-transform: uppercase;
-    border-radius: 5px;
-    border: 0;
-    margin: 5px;
-    color: white;
+  width: 30%;
+  height: 10%;
+  background-color: #6b8e23;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 0;
+  margin: 5px;
+  color: white;
 }
 
- 
 .green-add:hover {
-    cursor: pointer;
-    
+  cursor: pointer;
+  background-color: #9acd32;
 }
 
 /**background-image: url("http://www.free-icons-download.net/images/green-add-icon-62888.png");
