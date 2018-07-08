@@ -1,7 +1,30 @@
 .btn {
+    width: 30%;
+    height: 10%;
+    background-color: #9acd32;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    outline: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 0;
+    margin: 5px;
+}
+
+ 
+.green-add:hover {
+    cursor: pointer;
+    
+}
+
+/**background-image: url("http://www.free-icons-download.net/images/green-add-icon-62888.png");
+ background-image: url("http://downloadicons.net/sites/default/files/plus-icon-64937.png");
+
+ .btn {
     width: 50px;
     height: 50px;
-    background-image: url("http://downloadicons.net/sites/default/files/plus-icon-64937.png");
+    background-color: #9acd32;
     background-repeat: no-repeat;
     background-size: contain;
     outline: none;
@@ -10,8 +33,4 @@
     margin: 5px;
 }
 
- 
-.green-add:hover {
-    cursor: pointer;
-    background-image: url("http://www.free-icons-download.net/images/green-add-icon-62888.png");
-}
+*/
