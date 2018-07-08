@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Palanquin');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+/**@import url('https://fonts.googleapis.com/css?family=Palanquin');*/
+/**@import url('https://fonts.googleapis.com/css?family=Roboto');*/
 
 .App {
   width: 100%;
@@ -9,7 +11,7 @@
 
 body {
  color:white;
- font-family: Palanquin;
+ font-family:  "Karla";
 }
 
 body::-webkit-scrollbar {
