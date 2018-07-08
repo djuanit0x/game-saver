@@ -21,15 +21,6 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
-  
-  background-position: co
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-around;
-  background-size: contain;
-  align-items: flex-start;
  
-
 }
+

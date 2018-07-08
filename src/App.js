@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Discover from "./components/Discover/Discover";
 import MyGames from "./components/MyGames/MyGames.js";
-import NavigateDiscoverButton from "./components/NavigateDiscoverButton/NavigateDiscoverButton";
 import "./App.css";
 import Header from "./components/Header/Header.js";
 
@@ -28,27 +27,16 @@ export default class App extends Component {
   }
 
   render() {
-    let displayDiscoverButtonOrNot = jsx => {
-      if (this.state.isDiscover === "true") {
-        return jsx;
-      }
-    };
 
     return (
       <div className="App">
-        <div className="header-top">
-          {displayDiscoverButtonOrNot(
-            <NavigateDiscoverButton goToMyGames={this.goToMyGames} />
-          )}
-          {displayDiscoverButtonOrNot(<Header text="Dennis Juanito" />)}
-        </div>
-        {displayDiscoverButtonOrNot(<h1>GAME MANAGER</h1>)}
         {this.state.isDiscover === "true" ? (
-          <Discover />
+          <Discover goToMyGames={this.goToMyGames} isDiscover={this.state.isDiscover}/>
         ) : (
-          <MyGames goToDiscover={this.goToDiscover} />
+          <MyGames goToDiscover={this.goToDiscover} isDiscover={this.state.isDiscover}/>
         )}
       </div>
     );
   }
 }
+

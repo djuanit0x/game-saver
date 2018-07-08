@@ -62,14 +62,12 @@ export default class PopularWindow extends Component {
 
     return (
       <div>
-        <div className="popular-text">
-            <h1  >The Most Popular Video Games Right now</h1>
-        </div>
-
         <div className="popular-games-flex"> {displayPopularGames()} </div>
       </div>
     );
   }
 }
+
+
 
 //<Header text="The Most Popular Video Games Right now" />

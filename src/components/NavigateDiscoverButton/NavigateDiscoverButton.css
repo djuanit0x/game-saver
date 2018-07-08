@@ -1,14 +1,15 @@
 .btn-games {
-  width: 200px;
-  height: 200px;
-  margin-top: 20%;
-  background-image: url(http://icons.iconarchive.com/icons/shaunkleyn/phlat-blue-folders/128/Games-icon.png);
+  width: 100px;
+  height: 100px;
+  background-image: url("https://opengameart.org/sites/default/files/psControllerColored.png");
   background-repeat: no-repeat;
   background-size: contain;
   outline: none;
-  border-radius: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 50px;
   border: 0;
-  margin-right: 50%;
+
 }
 
 .open-mygames:hover {

@@ -74,7 +74,6 @@ export default class SearchWindow extends Component {
     return (
       <div>
         <div>
-          <h1>Searching Results:</h1>
           <div className="search-games-flex">{displaySearchGames()} </div>
         </div>
       </div>

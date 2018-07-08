@@ -22,9 +22,10 @@
   align-items: flex-start;
 }
 
+
 .mygames-text {
   font-size: 25px;
-  text-align: left;
+  text-align: left; 
   font-weight: lighter;
   border-bottom: 2px solid #9acd32;
   text-transform: uppercase;
@@ -36,3 +37,14 @@
   background: white;
   text-align: center;
 }
+
+.header-mygames{
+  background: url("http://25.media.tumblr.com/a0337deb08b2dbdc6eef56b322f0fa5d/tumblr_mquxhnUhNd1sqvt72o1_500.gif");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  /** width: 100vw; */
+ 
+}
+

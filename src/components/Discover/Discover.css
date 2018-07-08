@@ -1,0 +1,8 @@
+.main-header {
+    display: flex;
+    justify-content: space-around;
+    background-size: cover;
+    align-items: flex-start;
+    background-image: url('https://media.giphy.com/media/ZuxlfI0ml41va/source.gif');
+    background-repeat: no-repeat;
+}

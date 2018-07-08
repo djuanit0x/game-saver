@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Game from "../Game/Game.js";
-import NavigateMyGamesButton from "../NavigateMyGamesButton/NavigateMyGamesButton.js";
 import Header from "../Header/Header.js";
 import DeleteButton from "../DeleteButton/DeleteButton.js";
 import "./MyGames.css";
@@ -68,17 +67,10 @@ export default class MyGames extends Component {
 
     return (
       <div>
-        <div className="mygames-header">
-          <div style={{ marginRight: "50%" }}>
-            <NavigateMyGamesButton goToDiscover={this.props.goToDiscover} />
-          </div>
-          <Header text="Dennis Juanito" />
+        <div className="header-mygames">
+        <Header goToDiscover={this.props.goToDiscover} isDiscover={this.props.isDiscover}/>
         </div>
-        <h1>GAME MANAGER</h1>
-        <div className="mygames-text">
-          <Header text="MY GAMES" />
-        </div>
-
+        
         {this.state.myGames.length === 0 ? (
           <div className="zero-game">You currently have zero games</div>
         ) : (

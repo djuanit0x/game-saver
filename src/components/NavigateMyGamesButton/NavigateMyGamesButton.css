@@ -1,14 +1,13 @@
 .btn-discover {
-  width: 200px;
-  height: 200px;
-  background-image: url("http://www.hengmeili.com.cn/images/s1.jpg");
+  width: 100px;
+  height: 100px;
+  background-image: url("https://i.gifer.com/7jM3.gif");
   background-repeat: no-repeat;
   background-size: contain;
   outline: none;
-  border-radius: 20px;
-  border: 0;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  border: none;
+
+
 }
 
 button:active {

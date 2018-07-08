@@ -3,7 +3,8 @@ import axios from "axios";
 import Game from "../Game/Game.js";
 import PopularWindow from "../PopularWindow/PopularWindow.js";
 import SearchWindow from "../SearchWindow/SearchWindow.js";
-import SearchBar from "../SearchBar/SearchBar.js";
+import Header from "../Header/Header.js";
+import "./Discover.css";
 
 export default class Discover extends Component {
   constructor() {
@@ -37,7 +38,13 @@ export default class Discover extends Component {
   render() {
     return (
       <div>
-          <SearchBar handleInput={this.handleInput} query={this.state.input} />
+          <div className="main-header">
+          <Header isDiscover={this.props.isDiscover} 
+                  goToMyGames={this.props.goToMyGames} 
+                  handleInput={this.handleInput} 
+                  query={this.state.input}/>
+          </div>
+          
         {this.state.isDisplayPopularGames === "true" ? (
           <PopularWindow countMyGames={this.countMyGames}/>
         ) : (
