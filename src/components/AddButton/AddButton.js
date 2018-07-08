@@ -5,7 +5,7 @@ import "./AddButton.css"
 export default function AddButton(props) {
     return (
         <div>
-            <button className="btn" onClick={ (e) => props.addGame(props.gameObj)}></button>
+            <button className="btn green-add" onClick={ (e) => props.addGame(props.gameObj)}></button>
         </div>
     );
 }

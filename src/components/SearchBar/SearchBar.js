@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import "./SearchBar.css";
+ 
 
 export default function SearchBar(props) {
     return (

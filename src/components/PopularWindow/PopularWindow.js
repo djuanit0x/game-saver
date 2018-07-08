@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Game from "../Game/Game.js";
+import Header                   from "../Header/Header.js";
 import AddButton from "../AddButton/AddButton.js";
+import "./PopularWindow.css";
+ 
 
 
 export default class PopularWindow extends Component {
@@ -33,12 +36,13 @@ export default class PopularWindow extends Component {
             let gameCover = (game.cover === null) ? "http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover;
 
             return (
-             <div key={ Number(game.id) }>
+             <div key={ Number(game.id)} className="game-box" >
                <Game 
                   name={ game.name }
                   cover={ gameCover }
                   popularity={ game.popularity }
                   hypes={ game.hypes }
+                  summary= { game.summary }
                />
                <AddButton addGame={ this.addGame }
                           gameObj={{
@@ -46,7 +50,8 @@ export default class PopularWindow extends Component {
                                  id         : game.id,
                                  cover      : gameCover,
                                  popularity : game.popularity,
-                                 hypes      : game.hypes
+                                 hypes      : game.hypes,
+                                 summary    : game.summary
                           }}/>
              </div> 
             );
@@ -55,8 +60,11 @@ export default class PopularWindow extends Component {
         
         return (
         <div>
-            <h1>The Most Popular Video Games Right now</h1>
-            <div> { displayPopularGames() } </div>
+            <div className="popular-text" >
+                <Header text="The Most Popular Video Games Right now" />
+            </div>
+            
+            <div className="popular-games-flex"> { displayPopularGames() } </div>
         </div>
           
         );

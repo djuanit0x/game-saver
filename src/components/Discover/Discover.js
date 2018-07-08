@@ -1,6 +1,5 @@
 import React, { Component }     from 'react';
 import axios                    from 'axios';
-import Header                   from "../Header/Header.js";
 import Game                     from "../Game/Game.js";
 import PopularWindow            from "../PopularWindow/PopularWindow.js"
 import SearchWindow             from "../SearchWindow/SearchWindow.js"
@@ -42,8 +41,8 @@ export default class Discover extends Component {
   render() {
     
     return (
-      <div className="App">
-        <Header />
+      <div>
+       
         <SearchBar handleInput={ this.handleInput } query={ this.state.input }/>
         { (this.state.isDisplayPopularGames === "true") ? <PopularWindow /> 
         : <SearchWindow query={ this.state.input } /> }

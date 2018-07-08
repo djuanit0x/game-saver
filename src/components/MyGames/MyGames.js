@@ -4,6 +4,7 @@ import Game                     from "../Game/Game.js";
 import NavigateMyGamesButton    from "../NavigateMyGamesButton/NavigateMyGamesButton.js";
 import Header                   from "../Header/Header.js";
 import DeleteButton             from "../DeleteButton/DeleteButton.js";
+import "./MyGames.css";
 
 export default class MyGames extends Component {
 
@@ -36,7 +37,6 @@ export default class MyGames extends Component {
 
    deleteGame(id) {
        axios.delete(`/api/games/mygames/${ id }`)
-       console.log(id)
        this.getGame();
    }
     
@@ -44,14 +44,14 @@ export default class MyGames extends Component {
         let displayMyGames = () => {
             return this.state.myGames.map(game => {
               let gameCover = (game.cover === null) ? "http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover;
-  
               return (
-               <div key={ Number(game.id) }>
+               <div key={ Number(game.id)} className="game-box">
                  <Game 
                     name={ game.name }
                     cover={ gameCover }
                     popularity={ game.popularity }
                     hypes={ game.hypes }
+                    summary={ game.summary }
                  />
                  <DeleteButton deleteGame={ this.deleteGame }
                                id={ game.id }/>
@@ -62,12 +62,27 @@ export default class MyGames extends Component {
           }
 
       return (
-        <div className="App">
-          <NavigateMyGamesButton goToDiscover={ this.props.goToDiscover }/>
-          <Header text="MY GAMES"/>  
-          { displayMyGames() }
+        <div>
+            <div className="mygames-header">
+                <div style={{ marginRight:"60%" }}>
+                    <NavigateMyGamesButton  goToDiscover={ this.props.goToDiscover }/>
+                </div>
+                
+               
+                <Header text="Dennis Juanito"/>  
+            </div>
+            <h1>GAME MANAGER</h1>
+           <div className="mygames-text">
+               <Header text="MY GAMES"/>
+           </div>
+           
+          
+         
+          <div className="mygames-flex" >
+            { displayMyGames() }
+          </div>
+          
         </div>
       );
     }
   }
-  

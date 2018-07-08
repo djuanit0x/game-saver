@@ -41,12 +41,18 @@ export default class App extends Component {
 
     return (
       <div className="App">
+ 
+        <div class="header-top" >
         { displayDiscoverButtonOrNot( <NavigateDiscoverButton goToMyGames={ this.goToMyGames } /> ) }
-        { displayDiscoverButtonOrNot( <Header text="GAME MANAGER" /> ) }
+        { displayDiscoverButtonOrNot( <Header text="Dennis Juanito" /> ) }
+        </div>
+        { displayDiscoverButtonOrNot( <h1>GAME MANAGER</h1> ) }
         { 
           (this.state.isDiscover === "true") ? <Discover /> 
           : < MyGames goToDiscover={ this.goToDiscover } /> 
         }
+       
+        
       </div>
     );
   }

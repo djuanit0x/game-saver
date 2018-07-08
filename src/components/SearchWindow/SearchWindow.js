@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios                from 'axios';
 import Game                 from "../Game/Game.js";
 import AddButton            from "../AddButton/AddButton.js";
+import "./SearchWindow.css";
 
 export default class SearchWindow extends Component {
 
@@ -48,12 +49,13 @@ export default class SearchWindow extends Component {
             let gameCover = (game.cover === null) ? "http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg" : game.cover;
 
             return (
-             <div key={ Number(game.id) }>
+             <div key={ Number(game.id) } className="game-box" >
                <Game 
                   name={ game.name }
                   cover={ gameCover }
                   popularity={ game.popularity }
                   hypes={ game.hypes }
+                  summary={ game.summary }
                />
                <AddButton addGame={ this.addGame }
                           gameObj={{
@@ -61,7 +63,8 @@ export default class SearchWindow extends Component {
                                  id         : game.id,
                                  cover      : gameCover,
                                  popularity : game.popularity,
-                                 hypes      : game.hypes
+                                 hypes      : game.hypes,
+                                 summary    : game.summary
                           }}/>
              </div> 
             );
@@ -74,7 +77,7 @@ export default class SearchWindow extends Component {
           <div> 
               <div>
                   <h1>Searching Results:</h1>
-                  { displaySearchGames() } 
+                  <div className="search-games-flex">{ displaySearchGames() } </div>
               </div>
           </div>
           

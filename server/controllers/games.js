@@ -10,9 +10,10 @@ let updateJson = gameData => {
             let popularity  = (dataGameObj.hasOwnProperty("popularity")) ? dataGameObj.popularity         : null;
             let cover       = (dataGameObj.hasOwnProperty("cover"))      ? dataGameObj.cover.url          : null;
             let hypes       = (dataGameObj.hasOwnProperty("hypes"))      ? dataGameObj.hypes              : null;
+            let summary     = (dataGameObj.hasOwnProperty("summary"))    ? dataGameObj.summary            : null;
 
 
-            return  {name, id, cover, popularity, hypes};
+            return  {name, id, cover, popularity, hypes, summary};
     })
 }
 
@@ -20,7 +21,7 @@ module.exports = {
     searchGames: (req, res) => {
         let query = decodeURI(req.params.name);
         console.log(req.params);
-        axios.get(`https://api-endpoint.igdb.com/games/?search=${ query }&fields=name,popularity,cover,hypes`, {
+        axios.get(`https://api-endpoint.igdb.com/games/?search=${ query }&limit=39&fields=name,popularity,cover,hypes,summary`, {
             headers: {
                 "user-key"  : API_KEY,
                 Accept      : "application/json"
@@ -32,7 +33,7 @@ module.exports = {
     }
     , 
     searchPopularGames: (req, res) => {
-        axios.get("https://api-endpoint.igdb.com/games/?fields=*&order=popularity:desc", {
+        axios.get("https://api-endpoint.igdb.com/games/?fields=*&order=popularity:desc&limit=39", {
             headers: {
                 "user-key": API_KEY,
                 Accept: "application/json"
@@ -52,12 +53,13 @@ module.exports = {
             id,
             cover,
             popularity,
-            hypes
+            hypes,
+            summary
                         } = req.body;
 
             let index = games.findIndex(game => game.id === Number(id));
             if (index === -1) {
-                games.push({name, id, cover, popularity, hypes});
+                games.push({name, id, cover, popularity, hypes, summary});
             } 
             
             res.status(200).send(games);
@@ -70,7 +72,7 @@ module.exports = {
             return res.status(404).send('No game to delete with that id');
         } 
         games.splice(index, 1);
-        res.send(index);
+        res.status(200).send("cool");
     }
 }
 
