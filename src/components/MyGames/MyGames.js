@@ -64,11 +64,9 @@ export default class MyGames extends Component {
       return (
         <div>
             <div className="mygames-header">
-                <div style={{ marginRight:"60%" }}>
+                <div style={{ marginRight:"50%" }}>
                     <NavigateMyGamesButton  goToDiscover={ this.props.goToDiscover }/>
                 </div>
-                
-               
                 <Header text="Dennis Juanito"/>  
             </div>
             <h1>GAME MANAGER</h1>
@@ -76,11 +74,11 @@ export default class MyGames extends Component {
                <Header text="MY GAMES"/>
            </div>
            
-          
+         {
+             (this.state.myGames.length === 0) ? <div className="zero-game">You currently have zero games</div> : <div className="mygames-flex" > { displayMyGames() } </div>
+         } 
          
-          <div className="mygames-flex" >
-            { displayMyGames() }
-          </div>
+          
           
         </div>
       );

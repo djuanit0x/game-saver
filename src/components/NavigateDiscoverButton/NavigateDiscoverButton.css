@@ -1,17 +1,17 @@
 .btn-games {
     width: 200px;
     height: 200px;
-    margin-top: 20px;
+    margin-top: 20%;
     background-image: url(http://icons.iconarchive.com/icons/shaunkleyn/phlat-blue-folders/128/Games-icon.png);
     background-repeat: no-repeat;
     background-size: contain;
     outline: none;
     border-radius: 20px;  
     border: 0;
-    margin-right:690px;
+    margin-right:50%;
 }
  
 
 .open-mygames:hover {
-    background-image: url("http://www.emoji.co.uk/files/twitter-emojis/objects-twitter/11045-open-file-folder.png");
+    cursor: pointer;
 }

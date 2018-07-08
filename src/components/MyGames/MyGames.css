@@ -28,7 +28,12 @@
       text-align: left;
       font-weight: lighter; 
       border-bottom: 2px solid #9acd32;
-      text-transform: uppercase;
+      text-transform: uppercase;     
+  }
 
-     
+  .zero-game {
+     font-size: 45px;
+     color: black;
+     background: white;
+     text-align: center;
   }
