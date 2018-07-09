@@ -41,7 +41,7 @@ export default function Header(props) {
             )}
           </div>
 
-          <div>{displayGamesButtonOrNot(<h3>Find other games</h3>)}</div>
+          <div className="find-other-games">{displayGamesButtonOrNot(<h3>Find other games</h3>)}</div>
         </div>
         {displayGamesButtonOrNot(
           <div className="dennis-mygames">
